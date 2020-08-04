@@ -55,8 +55,8 @@ hitable *random_scene() {
 }   
 
 int main() {
-    int nx = 200;
-    int ny = 100;
+    int nx = 800;
+    int ny = 400;
     int ns = 100;
     std::cout << "P3\n" << nx << " " << ny << "\n255\n";
     vec3 lower_left_corner(-2.0,-1.0,-1.0);
@@ -72,11 +72,11 @@ int main() {
     //list[3] = new sphere(vec3(-2*R,0,-1), R, new dielectric(1.5));
     //hitable *world = new hitable_list(list,4);
     hitable *world = random_scene();
-    vec3 lookfrom(3,3,2);
-    vec3 lookat(0,0,-1);
-    float dist_to_focus = (lookfrom - lookat).length();
-    float aperature = 1.0;
-    camera cam(lookfrom, lookat, vec3(0,1,0),20, float(nx)/float(ny),aperature,dist_to_focus);
+    vec3 lookfrom(13,2,3);
+    vec3 lookat(0,0,0);
+    float dist_to_focus = 10.0;
+    float aperature = 0.0;
+    camera cam(lookfrom, lookat, vec3(0,1,0),20, float(nx)/float(ny),aperature,dist_to_focus,0.0,1.0);
     for(int j = ny - 1; j >= 0; j--) {
         for(int i = 0; i < nx; i++) {
             vec3 col(0,0,0);
